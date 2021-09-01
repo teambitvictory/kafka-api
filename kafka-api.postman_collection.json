@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "ef93be8c-e692-47d4-b06e-089d231752fc",
+		"name": "kafka-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/consumers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/consumers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"consumers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/consumers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"topic\": \"test\",\r\n    \"messages\": [\r\n        {\r\n            \"hello\": \"world\",\r\n            \"this\": \"works\"\r\n        },\r\n        {\r\n            \"hello\": \"mars\",\r\n            \"this\": \"wow\"\r\n        }\r\n    ],\r\n    \"headers\": {\r\n        \"X-Header-Test\": \"testHeader\" \r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/producer/send",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"producer",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/consumers/:topicName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/consumer/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"consumer",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/producer/send",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"topic\": \"USER_UPDATE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/consumers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"consumers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
